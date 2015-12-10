@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 *.zwc
 *.zwc.old
 modules/*/cache.zsh
+=======
+ansible.cfg
+Gemfile.lock
+>>>>>>> f1de2bc65b4b7ec92658af8a2db0b80aa7272bed
