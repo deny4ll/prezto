@@ -24,3 +24,21 @@ bindkey "^I" expand-or-complete-with-dots
 
 
  #Customize to your needs...
+
+sshr () { ssh -l root $@; }
+
+
+export LANG="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_ALL=
+
+
+
+export VAULT_TOKEN=209ddbce-19bc-1593-e2fa-4100eb8134c5
+export VAULT_ADDR='https://vault.weworkers.io:8200'
+export VAULT_CACERT=~/.we/ssl/weworkers_io-intermediate_crt
