@@ -27,6 +27,32 @@ bindkey "^I" expand-or-complete-with-dots
 
 sshr () { ssh -l root $@; }
 
+# toggle iTerm Dock icon
+# add this to your .bash_profile or .zshrc
+function toggleiTerm() {
+	pb='/usr/libexec/PlistBuddy'
+	iTerm='/Applications/iTerm.app/Contents/Info.plist'
+	
+	echo "Do you wish to hide iTerm in Dock?"
+	select ync in "Hide" "Show" "Cancel"; do
+	    case $ync in
+	        'Hide' )
+	        	$pb -c "Add :LSUIElement bool true" $iTerm
+	        	echo "relaunch iTerm to take effectives"
+	        	break
+	        	;;
+	        'Show' )
+	        	$pb -c "Delete :LSUIElement" $iTerm
+	        	echo "run killall 'iTerm' to exit, and then relaunch it"
+	        	break
+	        	;;
+		'Cancel' )
+			break
+			;;
+	    esac
+	done
+}
+
 
 export LANG="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
@@ -42,3 +68,12 @@ export LC_ALL=
 export VAULT_TOKEN=209ddbce-19bc-1593-e2fa-4100eb8134c5
 export VAULT_ADDR='https://vault.weworkers.io:8200'
 export VAULT_CACERT=~/.we/ssl/weworkers_io-intermediate_crt
+
+source /Users/chris/.dvm/dvm.sh
+
+[[ -r $DVM_DIR/bash_completion ]] && . $DVM_DIR/bash_completion
+
+# Enable Kubernetes Machine
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://10.0.10.2:2376"
+export DOCKER_CERT_PATH="$HOME/.docker/wekube"
