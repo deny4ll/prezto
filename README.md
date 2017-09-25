@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 Prezto — Instantly Awesome Zsh
 ==============================
 
